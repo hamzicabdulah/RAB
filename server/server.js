@@ -20,7 +20,7 @@ app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'public'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); //for parsing url encoded
-app.get('/', res.sendFile('../client/build/index.html'));
+app.get('/', (req, res) => {res.sendFile('../client/build/index.html')});
 
 
 require('./api/members')(app);
